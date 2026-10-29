@@ -174,3 +174,10 @@ server stopped. Recorded service/deploy identifiers, commands, and evidence in
 `docs/deployment.md`. Updated the Blueprint region to match the actual service.
 Documented free idle shutdown and the need to recheck near grading. Phase 5 is
 complete; the report and recording remain Phase 6 work.
+
+Follow-up: GitHub documentation commit `7182e41` was pushed, but Render still
+reported only the initial live deployment during final checks despite its
+auto-deploy setting. Runtime source is unchanged; current public gameplay is
+verified. Future automatic deploys need repository-integration verification.
+This limitation is recorded rather than claiming the documentation push was
+deployed or triggering a duplicate deploy with auto-deploy enabled.

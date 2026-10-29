@@ -127,6 +127,10 @@ reloading. These checks establish current accessibility and playability, not
 future uptime. Repeat the public DevTools demonstration in Phase 6 as part of
 the recording; Phase 4's detailed Network inspection was on localhost.
 
-The final documentation/region update is pushed to `main` and automatically
-redeploys the same application. No manual deploy should be triggered after a
-push while auto-deploy is enabled. Recheck the live state after this update.
+The documentation/region update was pushed as `7182e41`. Render reports
+auto-deploy enabled, but no follow-up deployment appeared during the verification
+window: the confirmed live revision remains `3ad546f`. Application source is
+identical between these revisions; only documentation and the Blueprint region
+changed. Automatic deployment on future pushes has not been demonstrated.
+Check GitHub/Render repository integration before relying on it for later code
+changes. No duplicate manual deploy was triggered while auto-deploy was enabled.
