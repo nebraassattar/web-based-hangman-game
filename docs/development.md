@@ -43,3 +43,45 @@ difficulty, and plays every word to a win. The lists have five unique lowercase
 ASCII entries each. Their small size means repeat selections are possible.
 No Phase 2 work has started. The student should review the implementation and
 explain guess → validation → state change → safe snapshot before proceeding.
+
+## GitHub synchronization and Phase 2 — October 28, 2026
+
+Prompt: “cool let's push everything to github then continue”. Network access
+required an elevated execution because sandbox DNS resolution failed. Fetched
+GitHub's initial `main` commit, preserved its UTF-16 README as
+`docs/reference/github-initial-README.md`, and merged both unrelated histories.
+The working README remained the detailed project README. Renamed the local
+branch to `main` and pushed without force, preserving the original remote commit.
+
+Implemented `server.py` with an application factory, one in-memory game store
+per application, UUID game IDs, all three required routes, strict JSON field
+validation, and consistent errors. A process-local lock protects state changes
+and snapshots from concurrent requests. Each API response uses the engine's
+safe serializer with game ID and difficulty added. Active answers are omitted;
+ended games disclose the answer. API responses use `Cache-Control: no-store`.
+Malformed and invalid input returns 400, unknown games 404, post-game guesses
+409, and non-JSON POSTs 415. Framework routing errors are also JSON while
+retaining HTTP headers such as Allow. Unknown game IDs take precedence over
+body validation on the guess route.
+
+Request flow: Flask parses and validates JSON, locates the game, passes a letter
+to the engine, and serializes the resulting public snapshot. Flask does not
+duplicate the engine's rules. Phase 3 will render that JSON in the browser.
+
+Created a project-local virtual environment instead of changing the existing
+global Flask 2.0.2 installation. Installed Flask 3.1.3 and its dependencies from
+`requirements.txt`. Tests use Flask's test client and standard-library unittest;
+fixed words are injected only in tests, never accepted through the public API.
+Reference: https://flask.palletsprojects.com/en/stable/testing/
+
+Verification: `.venv/Scripts/python.exe -m unittest discover -s tests -v` passes
+27 tests (18 engine/resource tests plus 9 API tests). API checks include all
+difficulties, full win/loss/restart flows, repeated and malformed input,
+unsupported content types, separate games/applications, routing errors, and
+answer disclosure on create/get/guess. `pip check` reports no broken requirements.
+A temporary real local HTTP server passed POST-create, GET-state, and POST-guess
+checks and was shut down afterward. `git diff --check` passed.
+
+Known limits: browser and deployment pending; `/` returns JSON 404 for now.
+In-memory games vanish on restart, are not shared between processes, and have
+no automatic expiry. Phase 2 is complete; Phase 3 has not started.

@@ -3,9 +3,9 @@
 An individual assignment to build an original Python/Flask server and an
 HTML/CSS/JavaScript browser client, then deploy it to a public HTTPS URL.
 
-**Current status: Phase 1 complete.** The independent engine, word loader, and
-student-supplied Easy/Medium/Hard lists are implemented and tested.
-There is no Flask server, browser interface, or deployed URL yet.
+**Current status: Phases 1 and 2 complete.** The independent engine, word loader,
+student-supplied lists, and Flask REST API are implemented and tested.
+The browser interface and deployment are still pending.
 
 ## Documents and authority
 
@@ -29,8 +29,8 @@ The engine owns rules, guesses, six incorrect guesses, masking, and outcomes;
 word management loads and randomly selects server-side words by difficulty.
 The hidden word appears in responses only after a win or loss.
 
-Architecture (engine, loader, tests, and resource instructions now exist;
-server and browser files are planned for later phases):
+Architecture (engine, loader, server, and tests now exist;
+browser files are planned for Phase 3):
 
 ```text
 game.py                 Independent game engine
@@ -41,7 +41,7 @@ static/style.css        Responsive presentation
 static/app.js           API requests, controls, and drawing
 words/{easy,medium,hard}.txt
 tests/                  Engine, word-management, and API tests
-requirements.txt        Phase 1 needs only the Python standard library
+requirements.txt        Flask dependency; unittest is part of Python
 ```
 
 Required routes are `POST /api/games`, `GET /api/games/{game_id}`, and
@@ -72,25 +72,36 @@ unavailable. These small initial lists support all three difficulties but may
 repeat words across games. See [provenance](words/README.md). Difficulty uses
 familiarity and spelling, rather than word length alone; categories are deferred.
 
-## Phase 1 setup and tests
+## Local setup, API, and tests
 
 Use Python 3.10 or newer. From the repository root in PowerShell:
 
 ```powershell
 python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
 .\.venv\Scripts\python.exe -m unittest discover -s tests -v
+.\.venv\Scripts\python.exe server.py
 ```
 
-No third-party packages are needed for this phase. Alternatively, run
-`python -m unittest discover -s tests -v` using your existing Python installation.
-Verified on Python 3.11.5: 18 tests pass. Tests cover temporary synthetic lists
-and validate every shipped word through a complete winning game.
+The API runs at `http://127.0.0.1:5000`; stop it with Ctrl+C. Debug mode is off.
+The root page `/` currently returns 404 because the browser arrives in Phase 3.
+Use a separate PowerShell window to try the API:
+
+```powershell
+$game = Invoke-RestMethod -Method Post -Uri http://127.0.0.1:5000/api/games -ContentType application/json -Body '{"difficulty":"easy"}'
+Invoke-RestMethod -Uri "http://127.0.0.1:5000/api/games/$($game.game_id)"
+Invoke-RestMethod -Method Post -Uri "http://127.0.0.1:5000/api/games/$($game.game_id)/guess" -ContentType application/json -Body '{"letter":"e"}'
+```
+
+Verified with Python 3.11.5 and Flask 3.1.3: 27 tests pass. Tests cover the
+engine, synthetic and shipped word lists, and API flows. A live local HTTP
+smoke check also verified create, retrieve, and guess endpoints.
 
 `HangmanGame(word)` accepts a server-selected word. `guess(letter)` validates
 and updates it, and `to_state()` returns a fresh safe snapshot. Invalid or
 duplicate guesses raise `InvalidGuessError`; ended games raise
-`GameFinishedError`. Neither changes the state. The API will add game IDs and
-difficulty to these snapshots in Phase 2.
+`GameFinishedError`. Neither changes the state. The API adds game IDs and
+difficulty to these snapshots.
 
 `WordManager()` loads the three expected files relative to the module, or accepts
 an explicit directory for tests. `choose_word("easy")` selects randomly from
@@ -101,12 +112,15 @@ there is no fallback list. See [development notes](docs/development.md).
 
 Intended origin: https://github.com/nebraassattar/web-based-hangman-game.git
 
-Initial inspection found an empty local repository on `master`, no commits,
-and no remote. The planning setup adds the requested origin without replacing
-content or rewriting history. A remote-ref query failed because network name
-resolution was unavailable, so remote contents/history are not yet verified.
-No push or deployment is part of this planning step. Inspect/fetch remote history
-before the first push; reconcile any existing work without force-pushing.
+The initial local `master` history was merged with GitHub's initial `main`
+commit without rewriting either history. The local branch is now `main` and
+tracks `origin/main`. The remote's initial README is preserved byte-for-byte
+in `docs/reference/github-initial-README.md` as well as in Git history.
+
+Games are held in one process and operations use a lock to avoid overlapping
+updates. Restarting clears games; multiple workers would not share them. There
+is no persistence or game cleanup yet, so memory use grows with created games.
+Production hosting and its start command will be prepared in Phase 5.
 
 Final delivery through HuskyCT includes the GitHub URL, public HTTPS application
 URL, a 1–2 page PDF report, and an approximately 2–3 minute recording. Record

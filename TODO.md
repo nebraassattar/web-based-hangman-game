@@ -1,6 +1,6 @@
 # Assignment Roadmap
 
-Phase 1 is complete with student-supplied word lists. Later phases have not started.
+Phases 1 and 2 are complete. Phase 3 and later phases have not started.
 Follow `SPECIFICATION.md`, with the assignment requirements taking precedence.
 Finish and verify one phase before proceeding; update checkboxes only after
 verification and commit each completed phase. Record meaningful prompts,
@@ -25,14 +25,17 @@ Completion: engine and word manager work under tests without Flask or a browser.
 
 ## Phase 2: Flask REST API and API tests
 
-- [ ] Configure Flask and isolated in-memory game storage with unique IDs.
-- [ ] Implement `POST /api/games` and validate difficulty input.
-- [ ] Implement `GET /api/games/{game_id}` with safe public state.
-- [ ] Implement `POST /api/games/{game_id}/guess` and server-authoritative updates.
-- [ ] Implement consistent JSON errors and documented 400/404/409/415 status behavior.
-- [ ] Test malformed/missing/extra fields, invalid and duplicate guesses, unknown games, and ended games.
-- [ ] Test full wins/losses, separate game states, and answer omission on every active-game response.
-- [ ] Run engine/API tests, explain the request flow, record results, and commit the verified phase.
+- [x] Configure Flask and isolated in-memory game storage with unique IDs.
+- [x] Implement `POST /api/games` and validate difficulty input.
+- [x] Implement `GET /api/games/{game_id}` with safe public state.
+- [x] Implement `POST /api/games/{game_id}/guess` and server-authoritative updates.
+- [x] Implement consistent JSON errors and documented 400/404/409/415 status behavior.
+- [x] Test malformed/missing/extra fields, invalid and duplicate guesses, unknown games, and ended games.
+- [x] Test full wins/losses, separate game states, and answer omission on every active-game response.
+- [x] Run engine/API tests, explain the request flow, record results, and commit the verified phase.
+
+Verification: 27 tests passed in the project virtual environment, plus a live
+local HTTP create/get/guess smoke check and a successful dependency check.
 
 Completion: required API supports a complete game without the browser.
 
