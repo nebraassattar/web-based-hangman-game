@@ -1,4 +1,4 @@
-"""Generate the report PDF from its editable Markdown source.
+"""Generate a historical reference draft, not the student's submission PDF.
 
 Requires reportlab (document tooling only, not an application dependency).
 Run from any directory: python docs/submission/build_report.py
@@ -16,7 +16,7 @@ from reportlab.platypus import SimpleDocTemplate, Paragraph, PageBreak
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE = Path(__file__).with_name("development_report.md")
-OUTPUT = ROOT / "output" / "pdf" / "hangman-development-report.pdf"
+OUTPUT = ROOT / "output" / "pdf" / "hangman-generated-reference.pdf"
 
 
 def build():

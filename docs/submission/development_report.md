@@ -1,3 +1,10 @@
+# Superseded generated report draft
+
+The student supplied their complete `Reflection.pdf` to replace this generated
+report. The authoritative submission is `output/pdf/hangman-development-report.pdf`,
+copied unchanged from that PDF. The text below is historical generated reference
+only and must not overwrite the student's current report.
+
 # Building and Deploying a Web-Based Hangman Game
 
 Individual programming assignment | October 29, 2026

@@ -15,18 +15,20 @@ recording and HuskyCT hand-in remain outstanding.
 ## Submission materials
 
 - [Two-page development report](output/pdf/hangman-development-report.pdf).
-- [Editable report source](docs/submission/development_report.md).
+- [Superseded generated draft](docs/submission/development_report.md) (historical reference only).
 - [Timed demonstration script and hand-in checklist](docs/submission/demonstration.md).
 
-The report includes the student's supplied reflection. Review it before submitting. The
+The report is the student's supplied `Reflection.pdf`, preserved unchanged at
+the report link above. Review it before submitting. The
 approximately 2-3 minute screen recording and HuskyCT submission still need to
 be completed. The script includes the public URL, a full game, restart, and a
 Chrome Developer Tools request/JSON response. No recording is included yet.
 
-To regenerate the PDF after editing its Markdown source, install `reportlab`
-in a document-authoring environment and run `python docs/submission/build_report.py`.
-Report tooling is separate from the Flask runtime dependencies. Confirm the
-regenerated report remains 1-2 pages and visually review it before submission.
+Edit the original student-authored document and export a new PDF to update the
+submission report. The old `build_report.py` now writes a separate
+`hangman-generated-reference.pdf` and cannot overwrite the student's report.
+Report tooling is separate from the Flask runtime dependencies. Confirm any
+revised submission remains 1-2 pages and visually review it before submission.
 
 ## Documents and authority
 

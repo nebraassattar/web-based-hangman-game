@@ -230,3 +230,7 @@ Attempted to open Windows Snipping Tool to create the remaining demonstration;
 the app approval timed out. No recording was created. A real screen recording
 and HuskyCT submission remain explicit student tasks. No optional expansion
 (larger word lists, categories, persistence, or CI) was implemented without review.
+
+## Student-authored PDF replaces generated report
+
+At the student's request, replaced the submission PDF with their complete Reflection.pdf, unchanged. Verified two pages and identical source/output hashes. The generated Markdown is marked superseded, and its builder writes a separate reference filename to prevent accidental replacement of the student's document. No application code changed.

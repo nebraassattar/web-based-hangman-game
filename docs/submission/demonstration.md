@@ -50,10 +50,10 @@ one Gunicorn worker because games are stored in memory; restarting loses them."
 
 ## Report review
 
-- Read the two-page PDF and editable Markdown source.
+- Read the student's submission PDF. The older generated Markdown is superseded.
 - Confirm the process/challenge descriptions match what you can explain.
-- The supplied personal reflection is included. Confirm its wording and regenerate
-  the PDF if making further changes.
+- The supplied report/AI reflection is preserved unchanged from `Reflection.pdf`.
+  Edit the original document and re-export if making further changes.
 - Confirm the two URLs, tests, and known limitations are accurate.
 - Be able to explain validation, six-miss loss, state serialization, and fetch.
 
