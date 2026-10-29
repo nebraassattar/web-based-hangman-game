@@ -136,3 +136,14 @@ class ApiTests(unittest.TestCase):
             response = client.post("/api/games", json={"difficulty": difficulty})
             self.assertEqual(response.status_code, 201)
             self.assertNotIn("word", response.json)
+
+    def test_browser_page_and_required_assets_are_served(self):
+        with self.client.get("/") as response:
+            self.assertEqual(response.status_code, 200)
+            self.assertEqual(response.mimetype, "text/html")
+            self.assertIn(b'lang="en"', response.data)
+        for path, content_type in (("/static/app.js", "javascript"),
+                                   ("/static/style.css", "text/css")):
+            with self.subTest(path=path), self.client.get(path) as response:
+                self.assertEqual(response.status_code, 200)
+                self.assertIn(content_type, response.content_type)

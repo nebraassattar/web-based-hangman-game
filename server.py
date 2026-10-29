@@ -3,7 +3,7 @@
 from threading import Lock
 from uuid import uuid4
 
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, render_template, request
 from werkzeug.exceptions import BadRequest, HTTPException
 
 from game import GameFinishedError, HangmanGame, InvalidGuessError
@@ -18,6 +18,10 @@ def create_app(word_manager=None):
     # Serialize game operations so concurrent requests cannot accept a duplicate
     # guess or read a half-updated snapshot. Storage still requires one process.
     lock = Lock()
+
+    @app.get("/")
+    def index():
+        return render_template("index.html")
 
     def error(code, message, status):
         return jsonify(error={"code": code, "message": message}), status

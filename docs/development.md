@@ -85,3 +85,38 @@ checks and was shut down afterward. `git diff --check` passed.
 Known limits: browser and deployment pending; `/` returns JSON 404 for now.
 In-memory games vanish on restart, are not shared between processes, and have
 no automatic expiry. Phase 2 is complete; Phase 3 has not started.
+
+## Phase 3 — October 28, 2026
+
+Prompt: “Cool let's move on”. Built an original paper-and-ink interface in
+`templates/index.html`, `static/style.css`, and `static/app.js`, served at `/`.
+Used the Sites skill's local-only preview workflow with the existing Flask
+checkout; cloud hosting remains scheduled for Phase 5.
+
+The client sends difficulty or a letter through `fetch()`, then renders only
+the server response. It has no word lists, word selection, or independent
+win/loss logic. Six SVG body parts reflect the incorrect-letter count. A
+shared request wrapper disables controls while pending, applies a timeout,
+and attempts GET-state recovery if a response fails. If recovery fails, it
+requires a new game rather than inventing local state. Error messages use
+an alert region; outcomes use a live status region. Keys are real buttons,
+used letters show correct/incorrect text labels, and shortcuts/form input are
+excluded from physical keyboard guessing.
+
+Validation: 28 Python tests pass, including page and static asset serving;
+`node --check static/app.js` and `git diff --check` pass. In the live browser,
+verified six misses caused loss and answer disclosure, then restarted without
+reloading. Won MONKEY with a physical M key and clickable remaining letters.
+Started Easy, Medium, and Hard games; checked disabled used keys and pending
+controls. Verified six-part drawing progression and life indicators.
+
+Inspected the default narrow layout and desktop at 1280×900. A 320px viewport
+revealed clipped settings controls; stacked the difficulty label and reduced
+word-slot sizing, then visually rechecked. Document width matched the viewport
+without horizontal overflow. SVG visibility uses the hidden attribute, which
+is explicitly handled in CSS. Temporary viewport overrides were reset.
+
+Known limits: no reload persistence; five words per difficulty; optional Google
+Fonts require network access with system-font fallbacks. Full keyboard/focus,
+contrast, assistive-technology, network-error, unknown-game, and Chrome DevTools
+request/response inspection belong to Phase 4 and are not claimed complete.

@@ -3,9 +3,9 @@
 An individual assignment to build an original Python/Flask server and an
 HTML/CSS/JavaScript browser client, then deploy it to a public HTTPS URL.
 
-**Current status: Phases 1 and 2 complete.** The independent engine, word loader,
-student-supplied lists, and Flask REST API are implemented and tested.
-The browser interface and deployment are still pending.
+**Current status: Phases 1–3 complete.** The independent engine, word loader,
+student-supplied lists, Flask REST API, and responsive browser interface are
+implemented and tested. The integration/accessibility audit and deployment remain.
 
 ## Documents and authority
 
@@ -29,8 +29,7 @@ The engine owns rules, guesses, six incorrect guesses, masking, and outcomes;
 word management loads and randomly selects server-side words by difficulty.
 The hidden word appears in responses only after a win or loss.
 
-Architecture (engine, loader, server, and tests now exist;
-browser files are planned for Phase 3):
+Current architecture:
 
 ```text
 game.py                 Independent game engine
@@ -46,7 +45,7 @@ requirements.txt        Flask dependency; unittest is part of Python
 
 Required routes are `POST /api/games`, `GET /api/games/{game_id}`, and
 `POST /api/games/{game_id}/guess`. See the specification for fields and errors.
-Flask will also serve `/`. In-memory storage requires one production worker;
+Flask serves the browser at `/`. In-memory storage requires one production worker;
 restarts clear games. Deployment configuration will be verified in Phase 5.
 
 ## Phased workflow
@@ -83,8 +82,12 @@ python -m venv .venv
 .\.venv\Scripts\python.exe server.py
 ```
 
-The API runs at `http://127.0.0.1:5000`; stop it with Ctrl+C. Debug mode is off.
-The root page `/` currently returns 404 because the browser arrives in Phase 3.
+Open `http://127.0.0.1:5000` in your browser. Choose a difficulty, click Start
+game, then click letters or type them on your keyboard. A wrong guess adds a
+body part; after six misses the game ends. New game starts again without a
+reload. The browser displays outcomes from Flask and never receives an active
+answer. Stop the server with Ctrl+C. Debug mode is off.
+
 Use a separate PowerShell window to try the API:
 
 ```powershell
@@ -93,9 +96,15 @@ Invoke-RestMethod -Uri "http://127.0.0.1:5000/api/games/$($game.game_id)"
 Invoke-RestMethod -Method Post -Uri "http://127.0.0.1:5000/api/games/$($game.game_id)/guess" -ContentType application/json -Body '{"letter":"e"}'
 ```
 
-Verified with Python 3.11.5 and Flask 3.1.3: 27 tests pass. Tests cover the
-engine, synthetic and shipped word lists, and API flows. A live local HTTP
-smoke check also verified create, retrieve, and guess endpoints.
+Verified with Python 3.11.5 and Flask 3.1.3: 28 tests pass. Tests cover the
+engine, synthetic and shipped lists, API flows, and page/asset serving. Live
+browser verification covered all difficulties, mouse/keyboard input, a complete
+win/loss, restart, and desktop/mobile layouts. See `docs/development.md`.
+
+The client uses plain JavaScript, with no build step. Pending requests disable
+submissions; network failures trigger a state refresh before further play.
+There is no saved-game restoration after a page reload. Optional Google Fonts
+enhance typography; system fonts work when the font service is unavailable.
 
 `HangmanGame(word)` accepts a server-selected word. `guess(letter)` validates
 and updates it, and `to_state()` returns a fresh safe snapshot. Invalid or

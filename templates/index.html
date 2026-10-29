@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f3eb">
+  <meta name="description" content="A little wordplay. Choose a difficulty and solve the word before six wrong guesses.">
+  <title>Hangman — A little wordplay</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="{{ url_for('static', filename='app.js') }}" defer></script>
+</head>
+<body>
+  <main class="page">
+    <header class="masthead"><a class="brand" href="/" aria-label="Hangman home"><span class="brand-mark" aria-hidden="true">h.</span> A LITTLE WORDPLAY</a><span class="edition">THE CLASSIC WORD GAME</span></header>
+    <section class="intro" aria-labelledby="title"><p class="eyebrow">ONE WORD. SIX CHANCES.</p><h1 id="title">Hangman<span class="title-dot">.</span></h1><p class="subtitle">A familiar game. A fresh word. How far will your letters take you?</p></section>
+    <section class="game-card" aria-label="Hangman game">
+      <div class="settings"><div class="difficulty-field"><label for="difficulty">DIFFICULTY</label><select id="difficulty"><option value="easy">Easy</option><option value="medium">Medium</option><option value="hard">Hard</option></select></div><button class="new-game" id="new-game" type="button">Start game <span aria-hidden="true">↗</span></button></div>
+      <div class="play-area">
+        <section class="drawing-panel" aria-label="Hangman drawing">
+          <div class="panel-heading"><span class="eyebrow">THE DRAWING BOARD</span><span class="round-label" id="round-label">READY WHEN YOU ARE</span></div>
+          <svg class="drawing" viewBox="0 0 320 300" role="img" aria-labelledby="drawing-title drawing-description">
+            <title id="drawing-title">Hangman drawing</title><desc id="drawing-description">No incorrect guesses. Six chances available.</desc>
+            <g class="scaffold"><path d="M45 270 H260 M90 270 V35 H215 V70 M90 65 L120 35"/></g>
+            <g class="figure"><circle data-part cx="215" cy="94" r="24" hidden/><path data-part d="M215 118 V192" hidden/><path data-part d="M215 135 L176 163" hidden/><path data-part d="M215 135 L254 163" hidden/><path data-part d="M215 192 L181 237" hidden/><path data-part d="M215 192 L249 237" hidden/></g>
+          </svg>
+          <div class="chances"><div><strong id="remaining">6</strong><span>chances left</span></div><div class="life-dots" id="life-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+        </section>
+        <section class="word-panel" aria-label="Word and letter controls">
+          <div class="word-heading"><span class="eyebrow" id="word-label">YOUR NEXT WORD AWAITS</span><span id="letter-count">—</span></div>
+          <div class="word-slots" id="word-slots" role="img" aria-label="Start a game to get a word"><span class="placeholder">Let’s find your word.</span></div>
+          <p class="message" id="message" role="status" aria-live="polite" aria-atomic="true">Choose a difficulty, then start a game.</p>
+          <p class="error-message" id="error" role="alert" hidden></p>
+          <div class="keyboard" id="keyboard" role="group" aria-label="Guess a letter"></div>
+          <div class="guess-history"><span class="eyebrow">LETTERS TRIED</span><p id="guessed">None yet — a clean slate.</p></div>
+          <p class="keyboard-hint"><span aria-hidden="true">⌨</span> Click a letter or use your keyboard.</p>
+        </section>
+      </div>
+    </section>
+    <section class="how-to" aria-label="How to play"><span class="eyebrow">A QUICK REFRESHER</span><p>Guess one letter at a time. Each miss adds to the drawing.<br>Find the word before your six chances run out.</p></section>
+    <footer><span>Small breaks. Good guesses.</span><span>MADE FOR THE LOVE OF WORDS</span></footer>
+    <noscript><p class="error-message">JavaScript is required to play. Please enable it and reload.</p></noscript>
+  </main>
+</body>
+</html>

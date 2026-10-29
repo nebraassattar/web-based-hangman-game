@@ -1,6 +1,6 @@
 # Assignment Roadmap
 
-Phases 1 and 2 are complete. Phase 3 and later phases have not started.
+Phases 1–3 are complete. Phase 4 and later phases have not started.
 Follow `SPECIFICATION.md`, with the assignment requirements taking precedence.
 Finish and verify one phase before proceeding; update checkboxes only after
 verification and commit each completed phase. Record meaningful prompts,
@@ -41,15 +41,19 @@ Completion: required API supports a complete game without the browser.
 
 ## Phase 3: Browser interface
 
-- [ ] Serve an HTML/CSS/JavaScript interface from Flask.
-- [ ] Add Easy/Medium/Hard selection and start/new-game controls using `fetch()`.
-- [ ] Render server-provided pattern, guessed/incorrect letters, lives, and outcome.
-- [ ] Add clickable alphabet buttons and physical keyboard handling.
-- [ ] Disable used letters, pending submissions, and guesses after game completion.
-- [ ] Draw six progressive Hangman parts from server-reported incorrect guesses.
-- [ ] Implement win/loss answer display and restart without page reload.
-- [ ] Add responsive layout, semantic controls, focus styles, and loading/error feedback.
-- [ ] Verify a browser game, review the client for hidden-word leakage, and commit the verified phase.
+- [x] Serve an HTML/CSS/JavaScript interface from Flask.
+- [x] Add Easy/Medium/Hard selection and start/new-game controls using `fetch()`.
+- [x] Render server-provided pattern, guessed/incorrect letters, lives, and outcome.
+- [x] Add clickable alphabet buttons and physical keyboard handling.
+- [x] Disable used letters, pending submissions, and guesses after game completion.
+- [x] Draw six progressive Hangman parts from server-reported incorrect guesses.
+- [x] Implement win/loss answer display and restart without page reload.
+- [x] Add responsive layout, semantic controls, focus styles, and loading/error feedback.
+- [x] Verify a browser game, review the client for hidden-word leakage, and commit the verified phase.
+
+Verification: 28 tests passed, JavaScript syntax check passed, and live browser
+checks covered mouse/keyboard play, all difficulties, win/loss, restart, and
+responsive layouts. Broader accessibility/failure checks remain in Phase 4.
 
 Completion: browser can play and restart using only API results for game decisions.
 
