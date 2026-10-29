@@ -1,7 +1,6 @@
 # Assignment Roadmap
 
-Phases 1–4 are complete. Phase 5 preparation is verified; public deployment and
-verification await Render account access. Phase 6 has not started.
+Phases 1–5 are complete. Phase 6 has not started.
 Follow `SPECIFICATION.md`, with the assignment requirements taking precedence.
 Finish and verify one phase before proceeding; update checkboxes only after
 verification and commit each completed phase. Record meaningful prompts,
@@ -81,10 +80,14 @@ Completion: integrated behavior and accessibility checks have recorded evidence.
 - [x] Document game loss on restart and one-process storage limitations.
 - [x] Confirm secrets are excluded and a fresh local installation works from README instructions.
 - [x] Push verified work to the intended GitHub repository while preserving history.
-- [ ] Deploy and record the actual public HTTPS URL and configuration.
-- [ ] Verify public UI and all three API endpoints independently of the local development server.
-- [ ] Play a complete deployed game and restart; verify all difficulties and no active-answer leakage.
-- [ ] Record evidence and ensure availability during grading; commit configuration and documentation updates.
+- [x] Deploy and record the actual public HTTPS URL and configuration.
+- [x] Verify public UI and all three API endpoints independently of the local development server.
+- [x] Play a complete deployed game and restart; verify all difficulties and no active-answer leakage.
+- [x] Record evidence and availability steps for grading; commit configuration and documentation updates (recheck availability in Phase 6).
+
+Verified October 29, 2026: https://web-based-hangman-game.onrender.com.
+Render build passed 29 tests; public HTTP smoke checks and a complete Chrome
+game/restart passed with the local server stopped. See `docs/deployment.md`.
 
 Completion: the public HTTPS application supports complete games without local setup.
 

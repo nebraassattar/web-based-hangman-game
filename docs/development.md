@@ -159,3 +159,18 @@ Gunicorn. See `docs/deployment.md` for commands and verification limits.
 Discovered an available Render integration and offered it for connection. The
 browser dashboard requires sign-in. Public deployment remains pending account
 access; no service or deployed URL is claimed. Phase 6 has not started.
+
+### Phase 5 deployment completed
+
+The student confirmed Render was connected and authorized the Free plan in
+“My Workspace”. Created `web-based-hangman-game` in Virginia using the GitHub
+main branch. Render's first build passed 29 tests on Python 3.11.18 and became
+live at https://web-based-hangman-game.onrender.com.
+
+Public HTTPS smoke checks passed for all three API routes and difficulties,
+validation, complete games, final disclosure, active-answer omission, and restart.
+Played a complete loss and restarted Medium/Hard games in Chrome with the local
+server stopped. Recorded service/deploy identifiers, commands, and evidence in
+`docs/deployment.md`. Updated the Blueprint region to match the actual service.
+Documented free idle shutdown and the need to recheck near grading. Phase 5 is
+complete; the report and recording remain Phase 6 work.

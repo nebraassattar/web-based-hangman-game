@@ -1,5 +1,9 @@
 # Render deployment
 
+Public application: https://web-based-hangman-game.onrender.com
+
+Dashboard: https://dashboard.render.com/web/srv-dbhcgfpsrm7s73ff6mdg
+
 ## Configuration
 
 The root `render.yaml` defines a Python web service on the free instance plan,
@@ -24,7 +28,10 @@ gunicorn --bind 0.0.0.0:$PORT --workers 1 --threads 4 --access-logfile - --error
 Flask's development server. Render supplies PORT. The process listens on all
 interfaces. One worker keeps all games in a shared process; four threads can
 handle requests, with the application's lock protecting game operations.
-Debug mode is off. `/` is the health-check path. No credentials or environment
+Debug mode is off. The Blueprint sets `/` as its health-check path; the service
+created through the Render integration currently uses Render's default port
+health check (the integration does not expose the HTTP health-check setting).
+The public `/` page was also verified over HTTPS. No credentials or environment
 secrets are required for this application.
 
 ## Create the service
@@ -96,7 +103,30 @@ python tests/smoke_deployment.py --local-gunicorn
 Confirmed `.env` and the local `.venv` are ignored. No application credentials
 are needed or included in deployment files. GitHub's history remains intact.
 
-Render dashboard currently presents its sign-in page. Account sign-in or a
-connected Render integration is required before creating the service. No public
-deployment, service ID, or HTTPS URL has been verified yet. Keep the remaining
-deployment tasks unchecked until actual cloud verification succeeds.
+The student connected Render and explicitly selected “My Workspace” and Free.
+Created the service through the connected Render integration rather than a
+Blueprint import; its commands match the configuration above. Region is
+Virginia; one free instance; branch `main`; automatic deploys enabled.
+
+- Service: `srv-dbhcgfpsrm7s73ff6mdg`.
+- Initial deployment: `dep-dbhcgg9srm7s73ff6n90`.
+- Application commit: `3ad546fb3df7fab00bbb4ced4924a4725b201638`.
+- Initial live time: October 29, 2026, about 12:15 a.m. America/New_York.
+- Render runtime: Python 3.11.18; build passed all 29 tests.
+- Runtime log confirmed Gunicorn bound to `0.0.0.0:10000` with a single
+  gthread worker; page requests returned 200.
+
+Public verification command passed against the actual HTTPS URL. It checked
+the page/assets, all difficulties, POST-create/GET-state/POST-guess, malformed
+guesses, answer omission during play, complete games, post-game rejection,
+unknown IDs, and fresh-game creation. No local server was running.
+
+In Chrome on the public URL, played Easy to a six-miss loss (RAINBOW), verified
+the completed drawing and final answer, then started Medium and Hard without
+reloading. These checks establish current accessibility and playability, not
+future uptime. Repeat the public DevTools demonstration in Phase 6 as part of
+the recording; Phase 4's detailed Network inspection was on localhost.
+
+The final documentation/region update is pushed to `main` and automatically
+redeploys the same application. No manual deploy should be triggered after a
+push while auto-deploy is enabled. Recheck the live state after this update.

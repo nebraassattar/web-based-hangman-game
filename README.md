@@ -3,11 +3,13 @@
 An individual assignment to build an original Python/Flask server and an
 HTML/CSS/JavaScript browser client, then deploy it to a public HTTPS URL.
 
-**Current status: Phases 1–4 complete.** The independent engine, word loader,
+**Play online: https://web-based-hangman-game.onrender.com**
+
+**Current status: Phases 1–5 complete.** The independent engine, word loader,
 student-supplied lists, Flask REST API, and responsive browser interface are
 implemented and tested. Integration and targeted accessibility checks are
-recorded in [testing evidence](docs/testing.md). Phase 5 configuration is ready;
-public Render deployment and HTTPS verification are awaiting account access.
+recorded in [testing evidence](docs/testing.md). Public Render deployment and
+HTTPS verification passed. The report and demonstration remain in Phase 6.
 
 ## Documents and authority
 
@@ -137,7 +139,10 @@ is no persistence or game cleanup yet, so memory use grows with created games.
 and starts Gunicorn with one worker and four threads. See
 [deployment instructions and verification record](docs/deployment.md).
 The configuration has passed local Linux production-server smoke checks.
-No deployed URL is confirmed yet.
+The public HTTPS service has passed the same HTTP smoke check and a complete
+browser game/restart with no local server running. Free hosting sleeps when
+idle; allow it to wake before starting a game or demonstrating it. Memory-only
+games are lost when it restarts. Recheck availability before grading.
 
 Final delivery through HuskyCT includes the GitHub URL, public HTTPS application
 URL, a 1–2 page PDF report, and an approximately 2–3 minute recording. Record
