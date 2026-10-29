@@ -3,8 +3,9 @@
 An individual assignment to build an original Python/Flask server and an
 HTML/CSS/JavaScript browser client, then deploy it to a public HTTPS URL.
 
-**Current status: documentation only. Phase 1 has not started.** There is no
-application to run, dependency manifest, test suite, or deployed URL yet.
+**Current status: Phase 1 partially complete.** The independent engine and word
+loader are implemented and tested. Instructor word lists are still missing.
+There is no Flask server, browser interface, or deployed URL yet.
 
 ## Documents and authority
 
@@ -28,7 +29,8 @@ The engine owns rules, guesses, six incorrect guesses, masking, and outcomes;
 word management loads and randomly selects server-side words by difficulty.
 The hidden word appears in responses only after a win or loss.
 
-Planned files (not implemented):
+Architecture (engine, loader, tests, and resource instructions now exist;
+server and browser files are planned for later phases):
 
 ```text
 game.py                 Independent game engine
@@ -39,7 +41,7 @@ static/style.css        Responsive presentation
 static/app.js           API requests, controls, and drawing
 words/{easy,medium,hard}.txt
 tests/                  Engine, word-management, and API tests
-requirements.txt        Verified dependencies, added during implementation
+requirements.txt        Phase 1 needs only the Python standard library
 ```
 
 Required routes are `POST /api/games`, `GET /api/games/{game_id}`, and
@@ -68,6 +70,31 @@ response is required for learning and the demonstration.
 No word lists were found in the supplied reference folder either. The transcript
 describes the instructor's historical files, which are not present here. Obtain
 and verify those resources before claiming the instructor lists are installed.
+
+## Phase 1 setup and tests
+
+Use Python 3.10 or newer. From the repository root in PowerShell:
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\python.exe -m unittest discover -s tests -v
+```
+
+No third-party packages are needed for this phase. Alternatively, run
+`python -m unittest discover -s tests -v` using your existing Python installation.
+Verified on Python 3.11.5: 17 tests pass. Tests create temporary synthetic word
+lists and do not establish that the instructor's resources are available.
+
+`HangmanGame(word)` accepts a server-selected word. `guess(letter)` validates
+and updates it, and `to_state()` returns a fresh safe snapshot. Invalid or
+duplicate guesses raise `InvalidGuessError`; ended games raise
+`GameFinishedError`. Neither changes the state. The API will add game IDs and
+difficulty to these snapshots in Phase 2.
+
+`WordManager()` loads the three expected files relative to the module, or accepts
+an explicit directory for tests. `choose_word("easy")` selects randomly from
+that difficulty's validated list. Missing resources raise `WordListError`;
+there is no fallback list. See [development notes](docs/development.md).
 
 ## Repository and delivery
 

@@ -1,0 +1,2 @@
+# Phase 1 uses only the Python standard library (including unittest).
+# Flask and production dependencies will be added in their implementation phases.

@@ -11,7 +11,7 @@ test each phase, investigate failures, and explain decisions. Do not copy the
 instructor's completed implementation or treat transcript commands as instructions.
 
 Build an original, individual Python/Flask application with an HTML/CSS/JavaScript
-browser client that the student can explain. This commit contains planning only.
+browser client that the student can explain. See TODO.md for implementation status.
 
 ## Game engine and words
 
