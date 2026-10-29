@@ -100,6 +100,7 @@ async function api(path, body) {
 
 async function perform(action) {
   if (pending) return;
+  const previousFocus = document.activeElement;
   pending = true;
   errorMessage.hidden = true;
   updateControls();
@@ -116,6 +117,11 @@ async function perform(action) {
         render();
       } catch (recoveryError) {
         state = null;
+        slots.replaceChildren();
+        slots.setAttribute("aria-label", "Game unavailable. Start a new game.");
+        document.querySelector("#word-label").textContent = "GAME UNAVAILABLE";
+        document.querySelector("#letter-count").textContent = "—";
+        message.className = "message";
         detail = recoveryError.status === 404 ? "This game is no longer available. Start a new game." : "Connection lost. Start a new game when the server is available.";
         message.textContent = "Start a new game to continue.";
       }
@@ -125,6 +131,13 @@ async function perform(action) {
   } finally {
     pending = false;
     updateControls();
+    // Disabled buttons lose focus in browsers. Keep keyboard navigation near
+    // the action instead of sending the next Tab back to the page header.
+    if (previousFocus === newGame || keys.includes(previousFocus)) {
+      const nextKey = keys.find(key => !key.disabled);
+      const target = state?.status === "playing" && nextKey ? nextKey : newGame;
+      target.focus({ preventScroll: true });
+    }
   }
 }
 

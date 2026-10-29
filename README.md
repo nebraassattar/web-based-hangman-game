@@ -3,9 +3,10 @@
 An individual assignment to build an original Python/Flask server and an
 HTML/CSS/JavaScript browser client, then deploy it to a public HTTPS URL.
 
-**Current status: Phases 1–3 complete.** The independent engine, word loader,
+**Current status: Phases 1–4 complete.** The independent engine, word loader,
 student-supplied lists, Flask REST API, and responsive browser interface are
-implemented and tested. The integration/accessibility audit and deployment remain.
+implemented and tested. Integration and targeted accessibility checks are
+recorded in [testing evidence](docs/testing.md). Cloud deployment remains.
 
 ## Documents and authority
 
@@ -96,10 +97,12 @@ Invoke-RestMethod -Uri "http://127.0.0.1:5000/api/games/$($game.game_id)"
 Invoke-RestMethod -Method Post -Uri "http://127.0.0.1:5000/api/games/$($game.game_id)/guess" -ContentType application/json -Body '{"letter":"e"}'
 ```
 
-Verified with Python 3.11.5 and Flask 3.1.3: 28 tests pass. Tests cover the
+Verified with Python 3.11.5 and Flask 3.1.3: 29 tests pass. Tests cover the
 engine, synthetic and shipped lists, API flows, and page/asset serving. Live
 browser verification covered all difficulties, mouse/keyboard input, a complete
-win/loss, restart, and desktop/mobile layouts. See `docs/development.md`.
+win/loss, restart, outage/stale-game recovery, and desktop/mobile layouts.
+See `docs/testing.md` for fixes, contrast measurements, DevTools evidence,
+and limits such as unverified screen-reader speech.
 
 The client uses plain JavaScript, with no build step. Pending requests disable
 submissions; network failures trigger a state refresh before further play.

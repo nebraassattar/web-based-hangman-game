@@ -1,6 +1,6 @@
 # Assignment Roadmap
 
-Phases 1–3 are complete. Phase 4 and later phases have not started.
+Phases 1–4 are complete. Phase 5 and later phases have not started.
 Follow `SPECIFICATION.md`, with the assignment requirements taking precedence.
 Finish and verify one phase before proceeding; update checkboxes only after
 verification and commit each completed phase. Record meaningful prompts,
@@ -59,13 +59,17 @@ Completion: browser can play and restart using only API results for game decisio
 
 ## Phase 4: Integration testing, accessibility, and debugging
 
-- [ ] Run all engine/API tests and resolve regressions.
-- [ ] Manually test all difficulties, correct/incorrect/repeated/invalid input, win, six-miss loss, and restart.
-- [ ] Verify mouse/keyboard input, progressive drawing, pending requests, network failures, and unknown-game recovery.
-- [ ] Verify desktop/mobile layouts, keyboard-only navigation, focus, contrast, status announcements, and drawing text alternatives.
-- [ ] Inspect at least one guess request/JSON response in Chrome Developer Tools and confirm the hidden word is absent during play.
-- [ ] Explain and record the browser → HTTP → Flask → engine → JSON → browser update sequence.
-- [ ] Record test evidence, bugs/fixes, and known limitations; commit the verified phase.
+- [x] Run all engine/API tests and resolve regressions.
+- [x] Manually test all difficulties, correct/incorrect/repeated/invalid input, win, six-miss loss, and restart.
+- [x] Verify mouse/keyboard input, progressive drawing, pending requests, network failures, and unknown-game recovery.
+- [x] Verify desktop/mobile layouts, keyboard-only navigation, focus, contrast, status-announcement semantics, and drawing text alternatives (screen-reader speech remains unverified).
+- [x] Inspect at least one guess request/JSON response in Chrome Developer Tools and confirm the hidden word is absent during play.
+- [x] Explain and record the browser → HTTP → Flask → engine → JSON → browser update sequence.
+- [x] Record test evidence, bugs/fixes, and known limitations; commit the verified phase.
+
+Verification: 29 tests pass. Chrome gameplay, outage/restart recovery, responsive
+layouts, focus, selected color contrast, and DevTools payload/response checks
+are recorded in `docs/testing.md`, including explicit verification limits.
 
 Completion: integrated behavior and accessibility checks have recorded evidence.
 

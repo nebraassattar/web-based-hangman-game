@@ -57,7 +57,7 @@ select { min-width:119px; border:1px solid #d7dbd1; border-radius:6px; padding:9
 .key-row { display:flex; justify-content:center; gap:6px; width:100%; }
 .letter-key { width:38px; height:39px; padding:0; border:1px solid #d8ddd3; border-radius:5px; background:#fffefa; color:var(--ink); font-size:12px; font-weight:600; transition:background .12s; }
 .letter-key:hover:enabled { background:#edf1e7; border-color:#82977c; }
-.letter-key:disabled { color:#969d90; background:#f1f2ec; }
+.letter-key:disabled { color:#626b5d; background:#f1f2ec; }
 .letter-key.correct { color:#28533e; background:#e0eadd; border-color:#b3c8ad; }
 .letter-key.incorrect { color:#8b5952; background:#f3e5df; border-color:#e5d1c9; text-decoration:line-through; }
 .guess-history { display:flex; align-items:baseline; gap:12px; border-top:1px solid var(--line); margin-top:24px; padding-top:17px; }

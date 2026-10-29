@@ -1,6 +1,7 @@
 """API contract tests with fixed test-only words and no running HTTP server."""
 
 import unittest
+from concurrent.futures import ThreadPoolExecutor
 
 from server import create_app
 
@@ -147,3 +148,18 @@ class ApiTests(unittest.TestCase):
             with self.subTest(path=path), self.client.get(path) as response:
                 self.assertEqual(response.status_code, 200)
                 self.assertIn(content_type, response.content_type)
+
+    def test_concurrent_duplicate_guess_is_accepted_only_once(self):
+        game_id = self.start()["game_id"]
+
+        def submit_from_separate_client(_):
+            with self.app.test_client() as client:
+                return client.post(f"/api/games/{game_id}/guess", json={"letter": "z"}).status_code
+
+        with ThreadPoolExecutor(max_workers=2) as pool:
+            statuses = list(pool.map(submit_from_separate_client, range(2)))
+        self.assertEqual(sorted(statuses), [200, 400])
+        state = self.client.get(f"/api/games/{game_id}").json
+        self.assertEqual(state["guessed_letters"], ["z"])
+        self.assertEqual(state["remaining_guesses"], 5)
+        self.assertNotIn("word", state)

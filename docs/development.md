@@ -120,3 +120,22 @@ Known limits: no reload persistence; five words per difficulty; optional Google
 Fonts require network access with system-font fallbacks. Full keyboard/focus,
 contrast, assistive-technology, network-error, unknown-game, and Chrome DevTools
 request/response inspection belong to Phase 4 and are not claimed complete.
+
+## Phase 4 — October 29, 2026
+
+Prompt: “let's push it and move on”. Confirmed Phase 3 was already on GitHub
+(`git push` returned “Everything up-to-date”), then completed the next phase.
+
+Found and fixed focus loss during pending requests, stale word display when
+state recovery fails, and weak disabled-letter contrast. Added a concurrent
+duplicate-guess regression test. All 29 tests pass, as do dependency and
+JavaScript syntax checks. Verified Chrome mouse/keyboard wins/losses, restart,
+all difficulties, repeated/invalid keyboard input, server-outage feedback,
+stale-game 404 recovery, desktop/mobile layouts, and focus placement.
+
+Inspected a real guess payload and active-game response in Chrome Developer
+Tools: a letter was sent and the updated JSON omitted the hidden answer.
+Recorded the browser/Flask/engine/JSON sequence and selected color contrast
+measurements. Full evidence, reproduction instructions, and remaining limits
+are in `docs/testing.md`. Screen-reader speech and cross-browser certification
+are not claimed. Phase 5 (deployment) has not started.
