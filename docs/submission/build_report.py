@@ -49,14 +49,14 @@ def build():
         canvas.line(44, 36, 568, 36)
         canvas.setFont("Helvetica", 8)
         canvas.setFillColor(colors.HexColor("#5d695f"))
-        canvas.drawString(44, 24, "Hangman | Development report | Draft for student review")
+        canvas.drawString(44, 24, "Hangman | Development report")
         canvas.drawRightString(568, 24, str(document.page))
         canvas.restoreState()
 
     SimpleDocTemplate(str(OUTPUT), pagesize=letter, rightMargin=44, leftMargin=44,
                       topMargin=38, bottomMargin=48,
                       title="Web-Based Hangman Development Report",
-                      author="Student review draft").build(story, onFirstPage=footer, onLaterPages=footer)
+                      author="").build(story, onFirstPage=footer, onLaterPages=footer)
     print(OUTPUT)
 
 

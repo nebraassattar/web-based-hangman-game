@@ -13,11 +13,11 @@ HTTPS verification passed. The report and demonstration remain in Phase 6.
 
 ## Submission materials
 
-- [Two-page development report draft](output/pdf/hangman-development-report.pdf).
+- [Two-page development report](output/pdf/hangman-development-report.pdf).
 - [Editable report source](docs/submission/development_report.md).
 - [Timed demonstration script and hand-in checklist](docs/submission/demonstration.md).
 
-Review the report and personalize the reflection before submitting. The
+The report includes the student's supplied reflection. Review it before submitting. The
 approximately 2-3 minute screen recording and HuskyCT submission still need to
 be completed. The script includes the public URL, a full game, restart, and a
 Chrome Developer Tools request/JSON response. No recording is included yet.

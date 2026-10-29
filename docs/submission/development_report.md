@@ -2,7 +2,7 @@
 
 Individual programming assignment | October 29, 2026
 
-Draft for student review. Confirm the reflection and be ready to explain the code before submission.
+Prepared for final review before submission.
 
 ## Development process
 
@@ -90,12 +90,21 @@ live application code is unchanged. This limitation is recorded for future updat
 2. "Okay let's start phase 1"
 3. "cool let's push everything to github then continue"
 
-## Reflection - draft for review
+## Reflection
 
-This project illustrates why AI-assisted development still requires an explicit
-scope and verification. Keeping the engine independent made its rules testable
-before HTTP or browser code existed. Inspecting a request and response connected
-the visible interface to the server's decisions. Small phases, tests, documented
-failures, and Git commits made the generated implementation easier to inspect
-and explain. Before submitting, I should confirm that these points reflect my
-own learning and practice explaining the request flow and deployment limitations.
+I built a web-based Hangman game with a Python/Flask backend and a browser
+interface in HTML, CSS, and JavaScript. The game logic is a separate Python
+engine, and the server holds all game state, so the hidden word is only sent
+to the browser after a win or loss.
+
+I worked in phases (engine, API, browser, testing, deployment) and committed
+after each one. I used an AI coding assistant for the code, then reviewed the
+results, ran the tests, and played the game in the browser myself.
+
+The main thing I learned was why the server should control the game state:
+if the browser knew the word, anyone could read it in developer tools. Testing
+in a real browser also caught bugs the automated tests missed, like keyboard
+focus and low letter contrast.
+
+I could not find the instructor's separate word-list files, so I used the
+example words I supplied in chat, five each for Easy, Medium, and Hard.

@@ -201,3 +201,13 @@ Outstanding student work: review/personalize the report, practice explaining
 the implementation, record and review a narrated screen demonstration including
 Chrome Network details, recheck grading availability, and submit through HuskyCT.
 Phase 6 remains partially complete; no video or submission is claimed.
+
+### Personal reflection update
+
+The student supplied their reflection describing phased work, AI assistance,
+personal review/testing, server authority, browser-discovered bugs, and word
+selection. Incorporated it into the report, removed the bracketed prompt to add
+more detail, and corrected the word provenance to examples supplied in chat
+rather than the assignment handout. Removed reflection-draft labels and updated
+the PDF and submission guidance. Final student review, recording, and hand-in
+remain outstanding.

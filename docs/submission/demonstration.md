@@ -52,14 +52,14 @@ one Gunicorn worker because games are stored in memory; restarting loses them."
 
 - Read the two-page PDF and editable Markdown source.
 - Confirm the process/challenge descriptions match what you can explain.
-- Personalize the reflection with your own learning; remove draft-review labels
-  after review and regenerate the PDF if making changes.
+- The supplied personal reflection is included. Confirm its wording and regenerate
+  the PDF if making further changes.
 - Confirm the two URLs, tests, and known limitations are accurate.
 - Be able to explain validation, six-miss loss, state serialization, and fetch.
 
 ## HuskyCT hand-in
 
-- [ ] Review and personalize the report, then verify its final PDF pages.
+- [ ] Give the report a final review before submitting; verify PDF pages after any further edits.
 - [ ] Record the 2-3 minute demonstration with your narration.
 - [ ] Review video playback for legible HTTP/JSON details, sound, and a full game/restart.
 - [ ] Reopen the public application shortly before submitting and during grading.
