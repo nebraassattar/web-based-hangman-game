@@ -96,10 +96,10 @@ Completion: the public HTTPS application supports complete games without local s
 
 - [x] Finish README setup/run/test/deployment instructions and known limitations.
 - [x] Verify repository includes original specification, reduced specification, updated TODO, word lists, code, tests, dependencies, and deployment configuration.
-- [x] Prepare a 1–2 page PDF covering process, implementation, testing, deployment, challenge/resolution, and reflection (draft for student review).
+- [x] Prepare a 1–2 page PDF covering process, implementation, testing, deployment, challenge/resolution, and reflection.
 - [x] Include two or three representative prompts and explain the original implementation.
 - [x] Incorporate the student's personal reflection and remove its placeholder.
-- [ ] Review/personalize reflection, confirm understanding, and approve the final report before submitting.
+- [x] Incorporate personal reflection and student report approval (student confirmed everything looks good); practice explaining the implementation before recording.
 - [ ] Record an approximately 2–3 minute demonstration of the deployed page, game start, guesses, a win/loss, and restart.
 - [ ] Show a Chrome Developer Tools HTTP request and JSON response in the recording.
 - [ ] Recheck repository/public URLs, report, recording, and grading availability; submit through HuskyCT.

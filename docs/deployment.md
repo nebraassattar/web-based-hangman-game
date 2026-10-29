@@ -106,7 +106,8 @@ are needed or included in deployment files. GitHub's history remains intact.
 The student connected Render and explicitly selected “My Workspace” and Free.
 Created the service through the connected Render integration rather than a
 Blueprint import; its commands match the configuration above. Region is
-Virginia; one free instance; branch `main`; automatic deploys enabled.
+Virginia; one free instance; branch `main`. The API displays automatic deploys
+enabled, but public-Git-URL services require manual deploys (see final verification).
 
 - Service: `srv-dbhcgfpsrm7s73ff6mdg`.
 - Initial deployment: `dep-dbhcgg9srm7s73ff6n90`.
@@ -127,10 +128,21 @@ reloading. These checks establish current accessibility and playability, not
 future uptime. Repeat the public DevTools demonstration in Phase 6 as part of
 the recording; Phase 4's detailed Network inspection was on localhost.
 
-The documentation/region update was pushed as `7182e41`. Render reports
-auto-deploy enabled, but no follow-up deployment appeared during the verification
-window: the confirmed live revision remains `3ad546f`. Application source is
-identical between these revisions; only documentation and the Blueprint region
-changed. Automatic deployment on future pushes has not been demonstrated.
-Check GitHub/Render repository integration before relying on it for later code
-changes. No duplicate manual deploy was triggered while auto-deploy was enabled.
+The documentation/region update was pushed as `7182e41`, but no automatic
+deployment followed. Final review resolved the cause: this service uses a public
+Git repository URL. Render's official deployment documentation states that
+auto-deploy requires a connected Git provider; public-Git-URL services must be
+deployed manually. The API's autoDeploy=yes does not override this constraint.
+
+For future changes: push to main, use Manual Deploy > Deploy latest commit on
+the service dashboard (or trigger a deploy through the connected Render tool),
+wait for the specific deploy to be live, and repeat the HTTPS smoke check. Do
+not trigger duplicate deploys when a connected-provider auto-deploy is already
+running. Connecting GitHub properly is an optional follow-up, not required for
+the currently working assignment.
+
+Final review re-ran all 29 unit/API tests, JavaScript syntax and dependency checks,
+and the public HTTP smoke suite. A fresh Chrome game was won as TIGER using
+keyboard input, with correct pattern updates, final disclosure, and disabled
+post-game controls. The final source push is followed by an explicit latest-commit
+deploy because this service cannot automatically deploy from its public Git URL.

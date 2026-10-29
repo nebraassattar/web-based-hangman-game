@@ -105,3 +105,26 @@ returns 404 because no workspace-discovery endpoint is configured.
 Known product limits remain: five words per difficulty, no reload restoration,
 no game expiry, process-local storage, and optional external fonts with fallbacks.
 Public HTTPS deployment and deployed-browser checks remain Phase 5 work.
+
+## Final rubric review
+
+The attached assignment handout was re-read during the final review. The engine
+and API requirements are covered by the 29 passing tests, including win/loss,
+six misses, invalid/duplicate/post-game guesses, state isolation, resource
+validation, and answer omission. JavaScript syntax and dependency checks pass.
+The public HTTPS smoke suite revalidated all difficulties, required endpoints,
+complete games, invalid requests, and fresh-game creation. Chrome verification
+also completed a keyboard-driven win (TIGER), correct pattern updates, final
+answer disclosure, and disabled post-game letter controls.
+
+The repository contains the original/reduced specifications, phased plan, all
+resources, frontend/backend code, tests, production configuration, run instructions,
+and a two-page PDF with the student's supplied reflection and three actual prompts.
+The handout is preserved as `docs/reference/Assignment_requirements.txt`.
+
+The remaining submission requirement is an actual 2-3 minute screen recording
+including Chrome Developer Tools, followed by HuskyCT hand-in. Launching Windows
+Snipping Tool for this task required an app approval that timed out; no recording
+was produced. The timed demonstration script remains ready for the student.
+No full-rubric score or completed video/submission is claimed. Application checks
+passing cannot guarantee grading outcomes or future free-service uptime.

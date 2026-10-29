@@ -80,9 +80,10 @@ was verified under Linux rather than relying on Flask's Windows development serv
 The public app was tested with the local server stopped: a complete game ended
 in a loss, displayed the answer, and restarted on another difficulty. Free
 hosting can sleep when idle, and restarts/deploys erase active games. There is
-no persistence or game expiry. Automatic deploys are enabled in Render, but a
-documentation-only push did not produce an observed follow-up deployment; the
-live application code is unchanged. This limitation is recorded for future updates.
+no persistence or game expiry. The service was created from a public Git URL,
+which requires manual deploys rather than Git-provider automatic deploys.
+Future updates must be deployed after pushing, or the service must be connected
+to a Git provider. This explains the earlier unobserved automatic deployment.
 
 ## Representative prompts
 

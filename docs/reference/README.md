@@ -1,5 +1,9 @@
 # Reference provenance
 
+`Assignment_requirements.txt` is an unchanged copy of the assignment/rubric
+attachment supplied during the final review. It takes precedence over the
+larger reference specification. Original instructor files remain unchanged.
+
 `Specification.md` and `TODO.md` are unchanged copies from:
 
 ```text

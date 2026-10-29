@@ -211,3 +211,22 @@ more detail, and corrected the word provenance to examples supplied in chat
 rather than the assignment handout. Removed reflection-draft labels and updated
 the PDF and submission guidance. Final student review, recording, and hand-in
 remain outstanding.
+
+## Final project review
+
+The student requested final rubric checks, website testing, completion, and a
+GitHub push. Re-read the attached assignment and preserved it unchanged under
+docs/reference/. Re-ran 29 unit/API tests, dependency and JavaScript syntax
+checks, and the public HTTPS smoke tests. Verified a fresh keyboard-driven win
+as TIGER in Chrome. No functional application defects were found in this pass.
+
+Resolved the deployment ambiguity using Render's current official documentation:
+services created from public Git URLs require manual deploys, even if the API
+shows autoDeploy=yes. Updated README, deployment guidance, and the two-page PDF
+to describe the actual workflow. A final manual latest-commit deploy is required
+after pushing this review, then its live state and public routes are verified.
+
+Attempted to open Windows Snipping Tool to create the remaining demonstration;
+the app approval timed out. No recording was created. A real screen recording
+and HuskyCT submission remain explicit student tasks. No optional expansion
+(larger word lists, categories, persistence, or CI) was implemented without review.

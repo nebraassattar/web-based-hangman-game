@@ -9,7 +9,8 @@ HTML/CSS/JavaScript browser client, then deploy it to a public HTTPS URL.
 student-supplied lists, Flask REST API, and responsive browser interface are
 implemented and tested. Integration and targeted accessibility checks are
 recorded in [testing evidence](docs/testing.md). Public Render deployment and
-HTTPS verification passed. The report and demonstration remain in Phase 6.
+HTTPS verification passed. The two-page report is ready; the demonstration
+recording and HuskyCT hand-in remain outstanding.
 
 ## Submission materials
 
@@ -30,7 +31,8 @@ regenerated report remains 1-2 pages and visually review it before submission.
 ## Documents and authority
 
 - [Reduced specification](SPECIFICATION.md): assignment scope and planned contract.
-- [Phased roadmap](TODO.md): unchecked work and verification criteria.
+- [Phased roadmap](TODO.md): completed work, remaining tasks, and verification criteria.
+- [Assignment requirements](docs/reference/Assignment_requirements.txt): supplied handout and grading rubric.
 - [Original specification](docs/reference/Specification.md) and
   [original instructor TODO](docs/reference/TODO.md): preserved unchanged.
 - [Reference provenance](docs/reference/README.md): sources and availability.
@@ -40,7 +42,7 @@ specification. The instructor transcript guides incremental development and
 debugging; it is not a source of completed code to copy. Original implementation
 and the ability to explain every component are part of the assignment.
 
-## Planned architecture
+## Architecture
 
 The browser submits difficulty and letters using same-origin `fetch()` requests.
 Flask validates JSON, locates an isolated game by ID, invokes the independent
@@ -159,6 +161,11 @@ The public HTTPS service has passed the same HTTP smoke check and a complete
 browser game/restart with no local server running. Free hosting sleeps when
 idle; allow it to wake before starting a game or demonstrating it. Memory-only
 games are lost when it restarts. Recheck availability before grading.
+
+This Render service was created from a public Git repository URL, so deploy
+updates manually after pushing to GitHub. The displayed auto-deploy setting
+does not establish a connected Git provider. See `docs/deployment.md` for the
+verified procedure; connecting GitHub for automatic deploys is a future option.
 
 Final delivery through HuskyCT includes the GitHub URL, public HTTPS application
 URL, a 1–2 page PDF report, and an approximately 2–3 minute recording. Record
