@@ -1,6 +1,7 @@
 # Assignment Roadmap
 
-Phases 1–4 are complete. Phase 5 and later phases have not started.
+Phases 1–4 are complete. Phase 5 preparation is verified; public deployment and
+verification await Render account access. Phase 6 has not started.
 Follow `SPECIFICATION.md`, with the assignment requirements taking precedence.
 Finish and verify one phase before proceeding; update checkboxes only after
 verification and commit each completed phase. Record meaningful prompts,
@@ -75,11 +76,11 @@ Completion: integrated behavior and accessibility checks have recorded evidence.
 
 ## Phase 5: Deployment preparation and deployment verification
 
-- [ ] Finalize dependencies and production configuration for Render or another suitable Python host.
-- [ ] Configure a WSGI entry point, environment port binding, one worker for in-memory games, and debug disabled.
-- [ ] Document game loss on restart and one-process storage limitations.
-- [ ] Confirm secrets are excluded and a fresh local installation works from README instructions.
-- [ ] Push verified work to the intended GitHub repository while preserving history.
+- [x] Finalize dependencies and production configuration for Render or another suitable Python host.
+- [x] Configure a WSGI entry point, environment port binding, one worker for in-memory games, and debug disabled.
+- [x] Document game loss on restart and one-process storage limitations.
+- [x] Confirm secrets are excluded and a fresh local installation works from README instructions.
+- [x] Push verified work to the intended GitHub repository while preserving history.
 - [ ] Deploy and record the actual public HTTPS URL and configuration.
 - [ ] Verify public UI and all three API endpoints independently of the local development server.
 - [ ] Play a complete deployed game and restart; verify all difficulties and no active-answer leakage.

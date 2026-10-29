@@ -6,7 +6,8 @@ HTML/CSS/JavaScript browser client, then deploy it to a public HTTPS URL.
 **Current status: Phases 1–4 complete.** The independent engine, word loader,
 student-supplied lists, Flask REST API, and responsive browser interface are
 implemented and tested. Integration and targeted accessibility checks are
-recorded in [testing evidence](docs/testing.md). Cloud deployment remains.
+recorded in [testing evidence](docs/testing.md). Phase 5 configuration is ready;
+public Render deployment and HTTPS verification are awaiting account access.
 
 ## Documents and authority
 
@@ -132,7 +133,11 @@ in `docs/reference/github-initial-README.md` as well as in Git history.
 Games are held in one process and operations use a lock to avoid overlapping
 updates. Restarting clears games; multiple workers would not share them. There
 is no persistence or game cleanup yet, so memory use grows with created games.
-Production hosting and its start command will be prepared in Phase 5.
+`render.yaml` configures a free Render Python service, runs tests during build,
+and starts Gunicorn with one worker and four threads. See
+[deployment instructions and verification record](docs/deployment.md).
+The configuration has passed local Linux production-server smoke checks.
+No deployed URL is confirmed yet.
 
 Final delivery through HuskyCT includes the GitHub URL, public HTTPS application
 URL, a 1–2 page PDF report, and an approximately 2–3 minute recording. Record

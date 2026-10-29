@@ -139,3 +139,23 @@ Recorded the browser/Flask/engine/JSON sequence and selected color contrast
 measurements. Full evidence, reproduction instructions, and remaining limits
 are in `docs/testing.md`. Screen-reader speech and cross-browser certification
 are not claimed. Phase 5 (deployment) has not started.
+
+## Phase 5 preparation — October 29, 2026
+
+Prompt: “okay cool let's do it”. Added `render.yaml`, a tracked `.python-version`
+for Python 3.11, and Gunicorn as a Linux-only dependency while pinning Flask to
+the verified 3.1.3 release. The build runs tests; production uses `server:app`,
+the Render PORT, one worker, and four threads. Documented free-service idle
+behavior, memory reset/scaling limits, setup steps, and cloud verification.
+
+Fresh Ubuntu Python 3.12.3 installation passed 29 tests and dependency checks.
+The repeatable HTTP smoke script passed against actual local Gunicorn 23.0.0,
+including all difficulties, complete games, restart, validation, and hidden-word
+protection. Gunicorn cannot run natively on Windows; testing under Ubuntu avoids
+claiming that Flask's development server proves the production command works.
+Windows Python 3.11.5 still passes all 29 tests with the platform marker skipping
+Gunicorn. See `docs/deployment.md` for commands and verification limits.
+
+Discovered an available Render integration and offered it for connection. The
+browser dashboard requires sign-in. Public deployment remains pending account
+access; no service or deployed URL is claimed. Phase 6 has not started.

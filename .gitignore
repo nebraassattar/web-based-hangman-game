@@ -6,7 +6,6 @@ __pycache__/
 venv/
 env/
 ENV/
-.python-version
 
 # Packaging and tools
 build/
