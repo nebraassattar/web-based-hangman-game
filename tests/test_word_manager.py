@@ -62,3 +62,21 @@ class WordManagerTests(unittest.TestCase):
         (self.directory / "easy.txt").write_bytes(b"\xff")
         with self.assertRaisesRegex(WordListError, "Cannot read"):
             WordManager(self.directory)
+
+
+class ProjectWordListTests(unittest.TestCase):
+    def test_shipped_lists_are_valid_and_playable_for_every_difficulty(self):
+        directory = Path(__file__).resolve().parents[1] / "words"
+        manager = WordManager(directory)
+        for difficulty in WordManager.DIFFICULTIES:
+            with self.subTest(difficulty=difficulty):
+                words = (directory / f"{difficulty}.txt").read_text(encoding="utf-8").splitlines()
+                self.assertTrue(words)
+                self.assertEqual(len(words), len(set(words)))
+                for word in words:
+                    self.assertRegex(word, r"^[a-z]+$")
+                    game = HangmanGame(word)
+                    for letter in dict.fromkeys(word):
+                        game.guess(letter)
+                    self.assertEqual(game.status, "won")
+                self.assertIn(manager.choose_word(difficulty), words)

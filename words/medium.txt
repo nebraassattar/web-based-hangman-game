@@ -1,0 +1,5 @@
+bicycle
+volcano
+elephant
+telescope
+pineapple

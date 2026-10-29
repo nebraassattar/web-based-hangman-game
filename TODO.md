@@ -1,7 +1,6 @@
 # Assignment Roadmap
 
-Phase 1 engine and word-management implementation is verified; instructor word
-lists are still missing, so Phase 1 remains incomplete. Later phases have not started.
+Phase 1 is complete with student-supplied word lists. Later phases have not started.
 Follow `SPECIFICATION.md`, with the assignment requirements taking precedence.
 Finish and verify one phase before proceeding; update checkboxes only after
 verification and commit each completed phase. Record meaningful prompts,
@@ -10,9 +9,9 @@ and review it until you can explain it.
 
 ## Phase 1: Project setup, game engine, word management, and unit tests
 
-- [ ] Confirm instructor word-list sources; obtain the currently missing Easy, Medium, and Hard files.
+- [x] Confirm word-list provenance: use the student's supplied examples as the initial lists; instructor originals remain unavailable.
 - [x] Create the planned Python, resource, and test structure and dependency setup.
-- [ ] Add and validate `words/easy.txt`, `words/medium.txt`, and `words/hard.txt`; document provenance.
+- [x] Add and validate `words/easy.txt`, `words/medium.txt`, and `words/hard.txt`; document provenance.
 - [x] Implement independent word loading, normalization, deduplication, validation, and random selection by difficulty.
 - [x] Implement independent Python game state, guess validation, masking, guessed/incorrect letters, and six incorrect guesses.
 - [x] Implement win/loss detection, duplicate rejection, post-game rejection, and safe state serialization.
@@ -20,8 +19,7 @@ and review it until you can explain it.
 - [x] Run unit tests and review/explain the engine; record results and commit the verified implementation progress.
 
 Verification: Python 3.11.5, `python -m unittest discover -s tests -v` —
-17 tests passed. See `docs/development.md`. Complete the two word-resource tasks
-and verify actual instructor data before closing Phase 1 or starting Phase 2.
+18 tests passed, including verification of the shipped lists. See `docs/development.md`.
 
 Completion: engine and word manager work under tests without Flask or a browser.
 

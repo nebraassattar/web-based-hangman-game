@@ -31,7 +31,15 @@ post-game immutability, isolated games, snapshot isolation, all difficulties,
 normalization/deduplication, selection pool, and list failures. Synthetic words
 are created in temporary directories and are not production/instructor lists.
 
-Remaining: obtain the three instructor lists, record provenance, and validate
-their actual contents. Phase 1 is not complete until those tasks are verified.
-The student should review the implementation and explain the engine's
-guess → validation → state change → safe snapshot flow before proceeding.
+Initial remaining work was to obtain word lists and validate their contents.
+The student subsequently supplied five example words for each difficulty in chat.
+These have been added as the initial project lists with explicit student
+provenance, completing Phase 1 without claiming instructor resources are present.
+Category-based lists were suggested as an alternative and remain deferred.
+
+Final verification: the same unittest command passes 18 tests. The additional
+resource test validates the shipped lists, checks selection stays within each
+difficulty, and plays every word to a win. The lists have five unique lowercase
+ASCII entries each. Their small size means repeat selections are possible.
+No Phase 2 work has started. The student should review the implementation and
+explain guess → validation → state change → safe snapshot before proceeding.

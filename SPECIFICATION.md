@@ -29,12 +29,11 @@ browser client that the student can explain. See TODO.md for implementation stat
 - Keep the hidden word private until a win or loss. Use one safe serialization
   path for all public game responses.
 
-Word-list audit: none of the three required files exists in this workspace or
-the supplied reference directory, including its nested project folders. The
-transcript's historical list counts do not establish current availability.
-Obtain the instructor's files and confirm provenance before using them; do not
-label invented lists as instructor-provided. Small synthetic test fixtures may
-be used separately and explicitly identified as test data.
+Word-list provenance: the instructor's original lists were unavailable during
+initial inspection. The student subsequently supplied five example words per
+difficulty in chat, now used as the initial project lists. These are not the
+instructor's lists. See `words/README.md`. Small synthetic test fixtures are
+kept separate. Category selection is not part of the current scope.
 
 ## Flask server and API contract
 

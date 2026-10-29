@@ -3,8 +3,8 @@
 An individual assignment to build an original Python/Flask server and an
 HTML/CSS/JavaScript browser client, then deploy it to a public HTTPS URL.
 
-**Current status: Phase 1 partially complete.** The independent engine and word
-loader are implemented and tested. Instructor word lists are still missing.
+**Current status: Phase 1 complete.** The independent engine, word loader, and
+student-supplied Easy/Medium/Hard lists are implemented and tested.
 There is no Flask server, browser interface, or deployed URL yet.
 
 ## Documents and authority
@@ -64,12 +64,13 @@ Later documentation will provide tested installation, local run, test, and
 deployment commands. Chrome Developer Tools inspection of a request and JSON
 response is required for learning and the demonstration.
 
-## Missing resources
+## Word resources
 
-`words/easy.txt`, `words/medium.txt`, and `words/hard.txt` are currently missing.
-No word lists were found in the supplied reference folder either. The transcript
-describes the instructor's historical files, which are not present here. Obtain
-and verify those resources before claiming the instructor lists are installed.
+`words/easy.txt`, `words/medium.txt`, and `words/hard.txt` each contain five words
+supplied by the student in chat. The instructor's original lists remain
+unavailable. These small initial lists support all three difficulties but may
+repeat words across games. See [provenance](words/README.md). Difficulty uses
+familiarity and spelling, rather than word length alone; categories are deferred.
 
 ## Phase 1 setup and tests
 
@@ -82,8 +83,8 @@ python -m venv .venv
 
 No third-party packages are needed for this phase. Alternatively, run
 `python -m unittest discover -s tests -v` using your existing Python installation.
-Verified on Python 3.11.5: 17 tests pass. Tests create temporary synthetic word
-lists and do not establish that the instructor's resources are available.
+Verified on Python 3.11.5: 18 tests pass. Tests cover temporary synthetic lists
+and validate every shipped word through a complete winning game.
 
 `HangmanGame(word)` accepts a server-selected word. `guess(letter)` validates
 and updates it, and `to_state()` returns a fresh safe snapshot. Invalid or
