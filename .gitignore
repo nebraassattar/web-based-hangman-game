@@ -21,6 +21,7 @@ dist/
 .coverage.*
 htmlcov/
 coverage.xml
+tmp/
 
 # Local Flask state and secrets
 instance/

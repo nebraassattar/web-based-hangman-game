@@ -11,6 +11,22 @@ implemented and tested. Integration and targeted accessibility checks are
 recorded in [testing evidence](docs/testing.md). Public Render deployment and
 HTTPS verification passed. The report and demonstration remain in Phase 6.
 
+## Submission materials
+
+- [Two-page development report draft](output/pdf/hangman-development-report.pdf).
+- [Editable report source](docs/submission/development_report.md).
+- [Timed demonstration script and hand-in checklist](docs/submission/demonstration.md).
+
+Review the report and personalize the reflection before submitting. The
+approximately 2-3 minute screen recording and HuskyCT submission still need to
+be completed. The script includes the public URL, a full game, restart, and a
+Chrome Developer Tools request/JSON response. No recording is included yet.
+
+To regenerate the PDF after editing its Markdown source, install `reportlab`
+in a document-authoring environment and run `python docs/submission/build_report.py`.
+Report tooling is separate from the Flask runtime dependencies. Confirm the
+regenerated report remains 1-2 pages and visually review it before submission.
+
 ## Documents and authority
 
 - [Reduced specification](SPECIFICATION.md): assignment scope and planned contract.

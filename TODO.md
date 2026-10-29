@@ -1,6 +1,7 @@
 # Assignment Roadmap
 
-Phases 1–5 are complete. Phase 6 has not started.
+Phases 1–5 are complete. Phase 6 report and demonstration guidance are prepared;
+student review, recording, and HuskyCT submission remain.
 Follow `SPECIFICATION.md`, with the assignment requirements taking precedence.
 Finish and verify one phase before proceeding; update checkboxes only after
 verification and commit each completed phase. Record meaningful prompts,
@@ -93,13 +94,20 @@ Completion: the public HTTPS application supports complete games without local s
 
 ## Phase 6: Submission report and demonstration checklist
 
-- [ ] Finish README setup/run/test/deployment instructions and known limitations.
-- [ ] Verify repository includes original specification, reduced specification, updated TODO, word lists, code, tests, dependencies, and deployment configuration.
-- [ ] Prepare a 1–2 page PDF covering process, implementation, testing, deployment, challenge/resolution, and reflection.
-- [ ] Include two or three representative prompts and explain the original implementation.
+- [x] Finish README setup/run/test/deployment instructions and known limitations.
+- [x] Verify repository includes original specification, reduced specification, updated TODO, word lists, code, tests, dependencies, and deployment configuration.
+- [x] Prepare a 1–2 page PDF covering process, implementation, testing, deployment, challenge/resolution, and reflection (draft for student review).
+- [x] Include two or three representative prompts and explain the original implementation.
+- [ ] Review/personalize reflection, confirm understanding, and approve the final report before submitting.
 - [ ] Record an approximately 2–3 minute demonstration of the deployed page, game start, guesses, a win/loss, and restart.
 - [ ] Show a Chrome Developer Tools HTTP request and JSON response in the recording.
 - [ ] Recheck repository/public URLs, report, recording, and grading availability; submit through HuskyCT.
+
+Prepared `output/pdf/hangman-development-report.pdf` (two pages, rendered and
+visually verified), editable source and regeneration script under
+`docs/submission/`, and a timed demonstration/hand-in checklist. All 29 tests
+and the public HTTPS smoke check passed again October 29, 2026. No video or
+HuskyCT submission has been created or claimed.
 
 Completion: all assignment deliverables are verified and ready for submission.
 

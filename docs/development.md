@@ -181,3 +181,23 @@ auto-deploy setting. Runtime source is unchanged; current public gameplay is
 verified. Future automatic deploys need repository-integration verification.
 This limitation is recorded rather than claiming the documentation push was
 deployed or triggering a duplicate deploy with auto-deploy enabled.
+
+## Phase 6 preparation — October 29, 2026
+
+Prompt: “let's do it”. Prepared a two-page PDF development report, editable
+Markdown source, a ReportLab regeneration script, and an approximately
+2 minute 40 second demonstration plan with submission checklist. The report
+covers the observed process, original architecture, testing, deployment,
+focus/recovery fixes, three actual prompts, and a reflection draft for the
+student to review. It does not invent personal learning or claim student review.
+
+Rendered both PDF pages with Poppler and inspected their layout after revising
+page breaks and prompt spacing. Verified the final PDF has exactly two pages.
+Rechecked the repository contents and GitHub remote, ran all 29 tests, and
+repeated the public HTTPS smoke checks successfully. The Render service remained
+unsuspended. ReportLab is document tooling, not a deployed runtime dependency.
+
+Outstanding student work: review/personalize the report, practice explaining
+the implementation, record and review a narrated screen demonstration including
+Chrome Network details, recheck grading availability, and submit through HuskyCT.
+Phase 6 remains partially complete; no video or submission is claimed.
